@@ -1,63 +1,33 @@
 'use-strict';
 
 require('dotenv').config();
+const config = require('./config');
 const express = require('express');
+const { body, validationResult } = require('express-validator');
 const app = express();
-const port = process.env.PORT || 3000;
-const endpoint = '/api/coordinates';
-const OPTIONS = [
-  {
-    strict: true, // only accepts arrays and objects
-    limit: '1000kb', // limit payload to 1mb
-  },
-];
+const port = process.env.PORT || config.PORT;
 
-app.use(express.json(OPTIONS)); // Allow JSON payloads
+app.use(express.json(config.JSON_OPTIONS)); // Allow JSON payloads
 
-app.get(endpoint, (req, res) => {
-  // Validate request data with expected properties
-  const VALID_PROPERTIES = ['northEastBoundary', 'southWestBoundary'];
-  if (isRequestBodyValid(req.body, VALID_PROPERTIES)) {
-    // Get random number between 1 and 10
-    const CEILING = 10;
-    const OFFSET = 1;
-    const randomNumber = getRandomNumber(CEILING, OFFSET);
-    console.log(randomNumber);
-  } else {
-    // Deny requested data
-    const message =
-      'Requested data within body does not contain valid properties...';
-    res.send(message);
+app.get(
+  config.ENDPOINT,
+  body(config.NORTH_EAST_BOUNDARY).isArray,
+  body(config.SOUTH_WEST_BOUNDARY).isArray,
+  (req, res) => {
+    // handle validation errors from request
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(config.BAD_REQUEST).json({ errors: errors.array() });
+    }
+
+    // get random number between 1 and 10
+    const randomNumber = getRandomNumber(config.CEILING, config.OFFSET);
+    // const coordinates = getRandomCoordinates(randomNumber);
   }
-  // const coordinates = getRandomCoordinates(randomNumber);
-});
+);
 
 app.listen(port, () => console.log(`Listening on port ${port}...`));
 
-// Helper functions
-const isRequestBodyValid = (body, properties) => {
-  console.log('Request JSON body: ', body);
-  console.log('Valid properties: ', properties);
-
-  let valid = false;
-  let count = 0;
-
-  // Count amount of properties in body
-  for (let i = 0; i < properties.length; i++) {
-    if (body.hasOwnProperty(properties[i])) {
-      count += 1;
-    }
-  }
-  // Define valid data if body contains all properties
-  if (count === properties.length) {
-    valid = true;
-  }
-
-  return valid;
-};
-
+// helper functions
 const getRandomNumber = (ceiling, offset) =>
   Math.floor(Math.random() * ceiling) + offset;
-
-// Export functions for testing
-module.exports = isRequestBodyValid;
