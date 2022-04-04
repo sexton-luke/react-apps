@@ -13,6 +13,7 @@ module.exports = {
   ],
 
   // validator request fields
+  BOUNDARY_BOX: 'boundaryBox',
   NORTH_EAST_BOUNDARY: 'northEastBoundary',
   SOUTH_WEST_BOUNDARY: 'southWestBoundary',
 
@@ -23,6 +24,6 @@ module.exports = {
   CEILING: 10,
   OFFSET: 1,
 
-  // request codes - error handling
+  // request codes
   BAD_REQUEST: 400,
 };
