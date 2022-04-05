@@ -44,10 +44,20 @@ Create a simple **React.js** based front end using the **above API endpoint** an
 
 ### Tasks:
 
-1.  Setup React project
-2.  Understand and implement MapBox component
-3.  Request data from endpoint
-4.  Create functions to handle and plot received data
+1.  ~~Setup React project~~
+2.  Implement custom components:
+    - Header
+    - Description
+    - Mapbox
+    - Button
+    - Footer
+3.  Understand and implement MapBox component
+4.  Send request to api endpoint
+5.  Handle response and plot coordinates on Mapbox component
+6.  CSS styling:
+    - Logo
+    - Colour theme
+    - All components
 
 ## Submission
 
