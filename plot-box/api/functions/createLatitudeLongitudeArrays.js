@@ -1,8 +1,8 @@
 /**
- *  Separates coordinates into latitude and longitude arrays from given JSON coordinates
+ *  Separates coordinates into latitude and longitude number arrays from given JSON coordinates
  *
- *  @param   { Object }         jsonData    JSON data containing named arrays (coordinates)
- *  @return  { array, array }               return separated arrays (latitude & longitude)
+ *  @param   { Object }         jsonData      JSON data containing named arrays (coordinates)
+ *  @return  { array<number>, array<number>] } return separated arrays (latitude & longitude)
  */
 
 const createLatitudeLongitudeArrays = jsonData => {
