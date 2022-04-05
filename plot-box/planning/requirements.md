@@ -20,21 +20,13 @@ Using **node.js** with an **Express NPM** component as the **backend API framewo
 
 1.  ~~Setup node.js environment~~
 2.  ~~Understand what and how to implement Express NPM~~
-3.  Research and create endpoint
+3.  Create api endpoint
 
     - ~~Get data~~
     - ~~Validate data~~
-    - getRandomCoordinates(randomNumber, boundaryBoxValues)
-
-      - calculate coordinates within boundary box
-      - return in names arrays:
-        1: ["longitude", "latitude"]
-        2: ["longitude", "latitude"]
-
-- Write test for how endpoint works
-
-4.  Create and fine tune functions
-5.  Create and define tests with test data
+    - ~~getRandomCoordinates(randomNumber, boundaryBoxValues)~~
+    - ~~Send coordindates in JSON response~~
+    - Incorporate unit testing for functions
 
 ## Front End:
 
