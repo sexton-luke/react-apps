@@ -1,7 +1,9 @@
 'use-strict';
 
-require('dotenv').config();
 const createLatitudeLongitudeArrays = require('./functions/createLatitudeLongitudeArrays');
+const getRandomCoordinates = require('./functions/getRandomCoordinates');
+
+require('dotenv').config();
 const config = require('./config');
 const express = require('express');
 const { body, validationResult } = require('express-validator');
@@ -43,39 +45,5 @@ app.get(
 app.listen(port, () => console.log(`Listening on port ${port}...`));
 
 // helper functions
-const calculateRandomFloatFromArray = array =>
-  Math.random() * (array[0] - array[1]) - array[1];
-
-const getRandomCoordinates = (
-  coordinateAmount,
-  latitudeBoundaries,
-  longitudeBoundaries
-) => {
-  // return given number of coordinates within given boundaries.
-  const coordinates = [];
-  const name = 'coordinate';
-  const DECIMAL_PLACES = 4;
-
-  // Create random coordinates
-  for (let i = 0; i < coordinateAmount; i++) {
-    const coordinate = {};
-    const coordinateData = [];
-    const key = name + i;
-
-    // Calculate randomness
-    const latitude = calculateRandomFloatFromArray(latitudeBoundaries);
-    const longitude = calculateRandomFloatFromArray(longitudeBoundaries);
-
-    // build coordinate array
-    coordinateData.push(latitude.toFixed(DECIMAL_PLACES));
-    coordinateData.push(longitude.toFixed(DECIMAL_PLACES));
-
-    coordinate[key] = coordinateData;
-    // add named array to coordinates dictionary
-    coordinates.push(coordinate);
-  }
-  return coordinates;
-};
-
 const getRandomNumber = (ceiling, offset) =>
   Math.floor(Math.random() * ceiling) + offset;
