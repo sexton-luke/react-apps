@@ -5,19 +5,15 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>Add LOGO here</p>
+        <title className="App-header-title">Plot Box</title>
+        <h1 className="App-header-heading">PLOT BOX</h1>
       </header>
+      <div className="Body">
+        <h2>Plot random points within your map view!</h2>
+        {/* Mapbox component */}
+        <button className="Plot-button"></button>
+      </div>
     </div>
   );
 }
