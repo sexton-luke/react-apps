@@ -10,6 +10,7 @@ const [latitudeArray, longitudeArray] = createLatitudeLongitudeArrays(jsonData);
 arrays.push(latitudeArray);
 arrays.push(longitudeArray);
 
+// run tests
 describe('createLatitudeLongitudeArrays', () => {
   it('assert data types and length of return arrays are equal to amount of coordinates from given param', () => {
     const jsonDataLength = Object.keys(jsonData).length;
