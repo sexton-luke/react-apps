@@ -1,5 +1,6 @@
 'use-strict';
 
+// initialise functions
 const createLatitudeLongitudeArrays = require('./functions/createLatitudeLongitudeArrays');
 const getRandomCoordinates = require('./functions/getRandomCoordinates');
 
@@ -38,7 +39,6 @@ app.get(
     );
 
     res.send(coordinates);
-    console.log(coordinates);
   }
 );
 

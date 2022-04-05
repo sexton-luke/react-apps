@@ -41,7 +41,6 @@ const getRandomCoordinates = (
     // add named array to coordinates dictionary
     coordinates.push(coordinate);
   }
-  console.log(coordinates);
   return coordinates;
 };
 
