@@ -1,6 +1,7 @@
 'use-strict';
 
 require('dotenv').config();
+const createLatitudeLongitudeArrays = require('./functions/createLatitudeLongitudeArrays');
 const config = require('./config');
 const express = require('express');
 const { body, validationResult } = require('express-validator');
@@ -45,18 +46,6 @@ app.listen(port, () => console.log(`Listening on port ${port}...`));
 const calculateRandomFloatFromArray = array =>
   Math.random() * (array[0] - array[1]) - array[1];
 
-const createLatitudeLongitudeArrays = jsonData => {
-  // separates coordinates into latitude and longitude arrays
-  let latitudeArray = [];
-  let longitudeArray = [];
-  for (let jsonArray of Object.values(jsonData)) {
-    latitudeArray.push(parseFloat(jsonArray[0]));
-    longitudeArray.push(parseFloat(jsonArray[1]));
-  }
-
-  return [latitudeArray, longitudeArray];
-};
-
 const getRandomCoordinates = (
   coordinateAmount,
   latitudeBoundaries,
@@ -90,5 +79,3 @@ const getRandomCoordinates = (
 
 const getRandomNumber = (ceiling, offset) =>
   Math.floor(Math.random() * ceiling) + offset;
-
-module.exports = createLatitudeLongitudeArrays;
