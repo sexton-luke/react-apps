@@ -1,11 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
 import { PureComponent } from 'react';
 
 // import custom components
 import Header from './components/header/Header';
 import Description from './components/description/Description';
-import Mapbox from './components/mapbox/Mapbox';
+import Map from './components/mapbox/Mapbox';
 import PlotButton from './components/plot-button/PlotButton';
 import Footer from './components/footer/Footer';
 
@@ -20,7 +19,7 @@ export default class App extends PureComponent {
       <div className="App">
         <Header />
         <Description />
-        <Mapbox />
+        <Map />
         <PlotButton />
         <Footer />
       </div>
