@@ -51,7 +51,7 @@ Create a simple **React.js** based front end using the **above API endpoint** an
     - Mapbox
     - Button
     - Footer
-3.  Understand and implement MapBox component
+3.  ~~Understand and implement MapBox component~~
 4.  Send request to api endpoint
 5.  Handle response and plot coordinates on Mapbox component
 6.  CSS styling:
