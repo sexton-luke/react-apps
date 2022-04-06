@@ -1,21 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
+import { PureComponent } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>Add LOGO here</p>
-        <title className="App-header-title">Plot Box</title>
-        <h1 className="App-header-heading">PLOT BOX</h1>
-      </header>
-      <div className="Body">
-        <h2>Plot random points within your map view!</h2>
-        {/* Mapbox component */}
-        <button className="Plot-button"></button>
+// import custom components
+import Header from './components/header/Header';
+import Description from './components/description/Description';
+import Mapbox from './components/mapbox/Mapbox';
+import PlotButton from './components/plot-button/PlotButton';
+import Footer from './components/footer/Footer';
+
+export default class App extends PureComponent {
+  // add constructor for setting state
+
+  // event handler functions
+
+  // render
+  render() {
+    return (
+      <div className="App">
+        <Header />
+        <Description />
+        <Mapbox />
+        <PlotButton />
+        <Footer />
       </div>
-    </div>
-  );
+    );
+  }
 }
-
-export default App;
