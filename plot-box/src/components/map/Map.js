@@ -1,10 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
-import PlotButton from '../plot-button/PlotButton.js';
 import config from '../../config.js';
-const PORT = process.env.NODE_PORT;
-// const URL = 'http://localhost:' + PORT + '/api/coordinates';
-const URL = 'http://localhost:3000/api/coordinates';
+const URL = process.env.REACT_APP_API_URL;
 
 mapboxgl.accessToken =
   'pk.eyJ1IjoibHVrZS1zZXh0b24iLCJhIjoiY2wxbm4zMHRmMGhsNDNrcGN3cmdpN3djeCJ9.Xo8UgocO3400h_0XbUel2A';
@@ -17,8 +14,6 @@ export default function Map() {
   const [longitude, setLongitude] = useState(config.DEFAULT_LONGITUDE);
   const [zoom, setZoom] = useState(config.DEFAULT_ZOOM);
   const [boundaries, setBoundaries] = useState();
-
-  const [coordinates, requestCoordinates] = useState();
 
   // initiate map
   useEffect(() => {
@@ -55,21 +50,27 @@ export default function Map() {
   }, [longitude, latitude, zoom, boundaries]);
 
   // sending api request
-  useEffect(() => {
-    fetch(URL, {
+  function requestCoordinates(boundaries) {
+    console.log('BOUNDARIES: ', boundaries);
+    console.log('URL: ', URL);
+    console.log('BOUNDARIES .JSON: ', JSON.stringify(boundaries));
+
+    const requestOptions = {
       method: 'POST',
-      body: boundaries,
-    })
+      body: JSON.stringify(boundaries),
+    };
+
+    fetch(URL, requestOptions)
       .then(response => response.json())
-      .then(data => coordinates);
-  }, [boundaries, coordinates]);
+      .then(data => console.log(data));
+  }
 
   return (
     <div>
       <div ref={mapContainerRef} className="map-container" />
       <div>
         <button
-          onClick={() => requestCoordinates()}
+          onClick={() => requestCoordinates(boundaries)}
           className="map-plot-button"
         >
           Plot Coordinates!
