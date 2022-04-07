@@ -12,7 +12,8 @@ const cors = require('cors');
 const app = express();
 const port = process.env.API_PORT || config.PORT;
 
-app.use(express.json(config.JSON_OPTIONS)); // Allow JSON payloads
+app.use(express.json(config.JSON_OPTIONS)); // allow JSON payloads
+app.use(express.urlencoded({ extended: true })); // parse URL encoded data
 app.use(cors());
 
 app.post(

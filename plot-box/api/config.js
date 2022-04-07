@@ -6,6 +6,7 @@ module.exports = {
     {
       strict: true, // only accepts arrays and objects
       limit: '100kb', // limit payload size
+      type: 'application/json',
     },
   ],
 
