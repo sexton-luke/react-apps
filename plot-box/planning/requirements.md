@@ -45,16 +45,16 @@ Create a simple **React.js** based front end using the **above API endpoint** an
 ### Tasks:
 
 1.  ~~Setup React project~~
-2.  Implement custom components:
-    - Header
-    - Description
-    - Mapbox
-    - Button
-    - Footer
+2.  ~~Implement custom components:~~
+    - ~~Header~~
+    - ~~Description~~
+    - ~~Map~~
+    - ~~Footer~~
 3.  ~~Understand and implement MapBox component~~
-4.  Send request to api endpoint
-5.  Handle response and plot coordinates on Mapbox component
-6.  CSS styling:
+4.  ~~Send request to api endpoint~~
+5.  Handle response and plot coordinates on Map component
+6.  Unit testing
+7.  CSS styling:
     - Logo
     - Colour theme
     - All components
