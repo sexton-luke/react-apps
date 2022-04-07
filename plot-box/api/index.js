@@ -31,8 +31,8 @@ app.post(
       return res.status(config.BAD_REQUEST).json({ errors: errors.array() });
     }
 
-    // create latitude and longitude boundaries
-    const [latitudeBoundaries, longitudeBoundaries] =
+    // create longitude and latitude boundaries
+    const [longitudeBoundaries, latitudeBoundaries] =
       createLatitudeLongitudeArrays(req.body);
 
     // get random number between 1 and 10
@@ -41,10 +41,11 @@ app.post(
     // get random coordinates between latitude/longitude boundaries
     const coordinates = getRandomCoordinates(
       randomNumber,
-      latitudeBoundaries,
-      longitudeBoundaries
+      longitudeBoundaries,
+      latitudeBoundaries
     );
-
+    console.log('number of coordinates: ', randomNumber);
+    console.log('coordinates: ', coordinates);
     res.send(coordinates);
   }
 );

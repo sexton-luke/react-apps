@@ -9,37 +9,36 @@
 
 const getRandomCoordinates = (
   coordinateAmount,
-  latitudeBoundaries,
-  longitudeBoundaries
+  longitudeBoundaries,
+  latitudeBoundaries
 ) => {
   // return given number of coordinates within given boundaries.
-  const coordinates = [];
-  const name = 'coordinate';
+  const coordinates = {};
   const DECIMAL_PLACES = 4;
+
+  console.log('lng bounds: ', longitudeBoundaries);
+  console.log('lat bounds: ', latitudeBoundaries);
 
   // Create random coordinates
   for (let i = 0; i < coordinateAmount; i++) {
-    const coordinate = {};
-    const coordinateData = [];
-    const key = name + i;
-
     // Calculate randomness
+    const longitude = calculateRandomFloatFromArray(
+      longitudeBoundaries[0],
+      longitudeBoundaries[1]
+    );
     const latitude = calculateRandomFloatFromArray(
       latitudeBoundaries[1],
       latitudeBoundaries[0]
     );
-    const longitude = calculateRandomFloatFromArray(
-      longitudeBoundaries[1],
-      longitudeBoundaries[0]
-    );
 
-    // build coordinate array
-    coordinateData.push(latitude.toFixed(DECIMAL_PLACES));
-    coordinateData.push(longitude.toFixed(DECIMAL_PLACES));
+    // build coordinate data
+    const coordinate = {
+      lng: longitude.toFixed(DECIMAL_PLACES),
+      lat: latitude.toFixed(DECIMAL_PLACES),
+    };
 
-    coordinate[key] = coordinateData;
-    // add named array to coordinates dictionary
-    coordinates.push(coordinate);
+    // add coordinate to collection of coordinates
+    coordinates[i] = coordinate;
   }
   return coordinates;
 };

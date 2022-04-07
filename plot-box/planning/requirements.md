@@ -52,9 +52,11 @@ Create a simple **React.js** based front end using the **above API endpoint** an
     - ~~Footer~~
 3.  ~~Understand and implement MapBox component~~
 4.  ~~Send request to api endpoint~~
-5.  Handle response and plot coordinates on Map component
-6.  Unit testing
-7.  CSS styling:
+5.  ~~Handle response and plot coordinates on Map component~~
+6.  Fix Map on move
+7.  Create function files
+8.  Unit testing
+9.  CSS styling:
     - Logo
     - Colour theme
     - All components

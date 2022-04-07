@@ -15,6 +15,8 @@ export default function Map() {
   const [zoom, setZoom] = useState(config.DEFAULT_ZOOM);
   const [boundaries, setBoundaries] = useState();
 
+  const markers = [];
+
   // initiate map
   useEffect(() => {
     if (map.current) return;
@@ -49,9 +51,10 @@ export default function Map() {
     });
   }, [longitude, latitude, zoom, boundaries]);
 
+  // setting coordinates on map
+
   // sending api request
   function requestCoordinates(boundaries) {
-    console.log('BOUNDARIES: ', boundaries);
     console.log('URL: ', URL);
     console.log('BOUNDARIES .JSON: ', JSON.stringify(boundaries));
 
@@ -63,7 +66,29 @@ export default function Map() {
 
     fetch(URL, requestOptions)
       .then(response => response.json())
-      .then(data => console.log(data));
+      .then(data => setCoordinates(data));
+  }
+
+  function setCoordinates(coordinates) {
+    clearMarkers(markers);
+
+    console.log('markers: ', markers);
+    for (let coordinate of Object.keys(coordinates)) {
+      const marker = new mapboxgl.Marker()
+        .setLngLat(coordinates[coordinate])
+        .addTo(map.current);
+
+      markers.push(marker);
+    }
+    console.log('markers added..', markers);
+  }
+
+  function clearMarkers(markers) {
+    console.log('clearing markers...');
+    for (let i = markers.length - 1; i >= 0; i--) {
+      markers[i].remove(); // remove from map
+      markers.pop(); // remove marker from array
+    }
   }
 
   return (
