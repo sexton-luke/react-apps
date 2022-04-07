@@ -12,13 +12,8 @@ module.exports = {
     },
   ],
 
-  // validator request fields
-  BOUNDARY_BOX: 'boundaryBox',
-  NORTH_EAST_BOUNDARY: 'northEastBoundary',
-  SOUTH_WEST_BOUNDARY: 'southWestBoundary',
-
   // default localhost port if environment variable does not exist
-  PORT: 3000,
+  PORT: 5000,
 
   // generate random number params
   CEILING: 10,
