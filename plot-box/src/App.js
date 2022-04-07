@@ -4,8 +4,7 @@ import { PureComponent } from 'react';
 // import custom components
 import Header from './components/header/Header';
 import Description from './components/description/Description';
-import Map from './components/mapbox/Mapbox';
-import PlotButton from './components/plot-button/PlotButton';
+import Map from './components/map/Map';
 import Footer from './components/footer/Footer';
 
 export default class App extends PureComponent {
@@ -20,7 +19,6 @@ export default class App extends PureComponent {
         <Header />
         <Description />
         <Map />
-        <PlotButton />
         <Footer />
       </div>
     );
