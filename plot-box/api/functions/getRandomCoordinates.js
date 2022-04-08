@@ -1,10 +1,11 @@
 /**
+ *
  *  Generate a random number of coordinates (latitude/longitude values) within given boundaries
  *
- * @param { number }    coordinateAmount    any number
- * @param { array<number> }     latitudeBoundaries  north/South boundary values
- * @param { array<number> }     longitudeBoundaries east/West boundary values
- * @returns { array<Object> }   coordinates         array of named arrays
+ * @param { number }        coordinateAmount    any number
+ * @param { array<number> } latitudeBoundaries  north/South boundary values
+ * @param { array<number> } longitudeBoundaries east/West boundary values
+ * @return { Object<Object<string, string> }   coordinates         array of named arrays
  */
 
 const getRandomCoordinates = (

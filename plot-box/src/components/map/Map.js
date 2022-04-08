@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import config from '../../config.js';
+import setCoordinates from './functions/setCoordinates.js';
 const URL = process.env.REACT_APP_API_URL;
 
 mapboxgl.accessToken =
@@ -66,29 +67,7 @@ export default function Map() {
 
     fetch(URL, requestOptions)
       .then(response => response.json())
-      .then(data => setCoordinates(data));
-  }
-
-  function setCoordinates(coordinates) {
-    clearMarkers(markers);
-
-    console.log('markers: ', markers);
-    for (let coordinate of Object.keys(coordinates)) {
-      const marker = new mapboxgl.Marker()
-        .setLngLat(coordinates[coordinate])
-        .addTo(map.current);
-
-      markers.push(marker);
-    }
-    console.log('markers added..', markers);
-  }
-
-  function clearMarkers(markers) {
-    console.log('clearing markers...');
-    for (let i = markers.length - 1; i >= 0; i--) {
-      markers[i].remove(); // remove from map
-      markers.pop(); // remove marker from array
-    }
+      .then(data => setCoordinates(map, data, markers));
   }
 
   return (

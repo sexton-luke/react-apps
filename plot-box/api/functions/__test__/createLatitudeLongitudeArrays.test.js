@@ -1,4 +1,4 @@
-const createLatitudeLongitudeArrays = require('../functions/createLatitudeLongitudeArrays');
+const createLatitudeLongitudeArrays = require('../createLatitudeLongitudeArrays');
 // test data
 const jsonData = {
   coordinate0: ['-73.9876', '40.7661'], // longitude/latitude

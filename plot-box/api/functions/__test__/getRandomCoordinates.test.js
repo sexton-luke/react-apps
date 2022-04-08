@@ -1,4 +1,4 @@
-const getRandomCoordinates = require('../functions/getRandomCoordinates');
+const getRandomCoordinates = require('../getRandomCoordinates');
 
 // test parameters
 const coordinateAmount = 10;

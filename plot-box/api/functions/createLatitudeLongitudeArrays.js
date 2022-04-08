@@ -1,21 +1,21 @@
 /**
  *  Separates coordinates into latitude and longitude number arrays from given JSON coordinates
  *
- *  @param   { Object }         jsonData      JSON data containing named arrays (coordinates)
- *  @return  { array<number>, array<number>] } return separated arrays (longitude & latitude)
+ *  @param   { Object } jsonData  JSON data containing named arrays (coordinates)
+ *  @return  { array<number>, array<number>] }  [longitudes, latitudes] return separated arrays (longitude & latitude)
  */
 
 const createLongitudeLatitudeArrays = jsonData => {
-  let longitudeArray = [];
-  let latitudeArray = [];
+  let longitudes = [];
+  let latitudes = [];
 
   for (let jsonArray of Object.values(jsonData)) {
-    longitudeArray.push(parseFloat(jsonArray['lng']));
-    latitudeArray.push(parseFloat(jsonArray['lat']));
+    longitudes.push(parseFloat(jsonArray['lng']));
+    latitudes.push(parseFloat(jsonArray['lat']));
   }
-  console.log('longitudeArray: ', longitudeArray);
-  console.log('latitdueArray: ', latitudeArray);
-  return [longitudeArray, latitudeArray];
+  console.log('longitudeArray: ', longitudes);
+  console.log('latitdueArray: ', latitudes);
+  return [longitudes, latitudes];
 };
 
 module.exports = createLongitudeLatitudeArrays;
