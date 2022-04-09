@@ -10,8 +10,14 @@ const createLongitudeLatitudeArrays = jsonData => {
   let latitudes = [];
 
   for (let jsonArray of Object.values(jsonData)) {
-    longitudes.push(parseFloat(jsonArray['lng']));
-    latitudes.push(parseFloat(jsonArray['lat']));
+    console.log('jsonArray: ', jsonArray);
+
+    for (let lngLatValues of Object.values(jsonArray)) {
+      console.log('array', lngLatValues);
+      longitudes.push(parseFloat(lngLatValues['lng']));
+      latitudes.push(parseFloat(lngLatValues['lat']));
+    }
+
   }
   console.log('longitudeArray: ', longitudes);
   console.log('latitdueArray: ', latitudes);
