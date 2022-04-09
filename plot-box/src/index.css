@@ -1,3 +1,45 @@
+/* 
+  color palette
+    - #C4C4C4
+    - #919191
+    - #444444
+    - #2C2C2B
+    - #191A1A
+*/
+
+#plot {
+  display: block;
+  margin: 0px auto;
+  height: 30px;
+  border-radius: 3px;
+  font-size: 12px;
+  text-align: center;
+  color: #fff;
+  background: #444444;
+  margin-top: 6px;
+}
+
+button {
+  background-color: #444444;
+}
+
+.map-container {
+  height: 400px;
+}
+
+.sidebar {
+  background-color: rgba(68, 68, 68, 1);
+  color: #fff;
+  padding: 6px 12px;
+  font-family: monospace;
+  z-index: 1;
+  position: absolute;
+  top: 10;
+  left: 0;
+  margin: 12px;
+  border-radius: 4px;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -12,6 +54,30 @@ code {
     monospace;
 }
 
-.map-container {
-  height: 400px;
+footer {
+  background-color: #191A1A;
+  min-height: 25;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(5 + 2vmin);
+  color: #E00A24;
+  border-top: 1px solid #444444;
+}
+
+header {
+  background-color: #191A1A;
+  min-height: 25;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(5 + 2vmin);
+  color: #E00A24;
+}
+
+h2 {
+  color: #C4C4C4;
+  font-family: sans-serif;
 }

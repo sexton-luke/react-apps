@@ -20,10 +20,8 @@ app.post(
   config.API_PREFIX + config.COORDINATES_END_POINT,
   body().isJSON(),
   (req, res) => {
-    console.log('REQUEST BODY: ', req.body);
-    console.log('TYPE: ', typeof req.body);
     const body = JSON.stringify(req.body);
-    console.log('STRINGIFY BODY: ', body);
+    console.log('request.body: ', body);
 
     // handle validation errors from request
     const errors = validationResult(req.body);

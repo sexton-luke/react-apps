@@ -9,18 +9,22 @@
 const mapboxgl = require('mapbox-gl');
 const clearMarkers = require('./clearMarkers');
 
-const setCoordinates = (map, coordinates, markers) => {
+const setMarkers = (map, coordinates, markers) => {
+  console.log('map: ', map);
+  console.log('coordinates: ', coordinates);
+  console.log('markers: ', markers);
+
+
   markers = clearMarkers(map, markers);
 
-  console.log('markers: ', markers);
   for (let coordinate of Object.keys(coordinates)) {
     const marker = new mapboxgl.Marker()
       .setLngLat(coordinates[coordinate])
-      .addTo(map.current);
+      .addTo(map);
 
     markers.push(marker);
   }
   console.log('markers added..', markers);
 };
 
-module.exports = setCoordinates;
+module.exports = setMarkers;

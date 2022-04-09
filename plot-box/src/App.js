@@ -1,18 +1,13 @@
 import './App.css';
-import { PureComponent } from 'react';
+import { Component } from 'react';
 
 // import custom components
-import Header from './components/header/Header';
-import Description from './components/description/Description';
+import Header from './components/Header';
+import Description from './components/Description'
 import Map from './components/map/Map';
-import Footer from './components/footer/Footer';
+import Footer from './components/Footer';
 
-export default class App extends PureComponent {
-  // add constructor for setting state
-
-  // event handler functions
-
-  // render
+export default class App extends Component {
   render() {
     return (
       <div className="App">

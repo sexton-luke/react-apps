@@ -1,86 +1,82 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import mapboxgl from 'mapbox-gl';
-import config from '../../config.js';
-import setCoordinates from './functions/setCoordinates.js';
+import config from '../../config';
+import setMarkers from './functions/setMarkers';
 const URL = process.env.REACT_APP_API_URL;
 
 mapboxgl.accessToken =
-  'pk.eyJ1IjoibHVrZS1zZXh0b24iLCJhIjoiY2wxbm4zMHRmMGhsNDNrcGN3cmdpN3djeCJ9.Xo8UgocO3400h_0XbUel2A';
+    'pk.eyJ1IjoibHVrZS1zZXh0b24iLCJhIjoiY2wxbm4zMHRmMGhsNDNrcGN3cmdpN3djeCJ9.Xo8UgocO3400h_0XbUel2A';
 
-export default function Map() {
-  const mapContainerRef = useRef(null);
-  const map = useRef(null);
 
-  const [latitude, setLatitude] = useState(config.DEFAULT_LATITUDE);
-  const [longitude, setLongitude] = useState(config.DEFAULT_LONGITUDE);
-  const [zoom, setZoom] = useState(config.DEFAULT_ZOOM);
-  const [boundaries, setBoundaries] = useState();
+export default class Map extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        this.state = {
+            lng: config.DEFAULT_LNG,
+            lat: config.DEFAULT_LAT,
+            zoom: config.DEFAULT_ZOOM,
+            bounds: [],
+        };
+        this.mapContainer = React.createRef();
+        this.map = {};
+        this.markers = [];
+    }
 
-  const markers = [];
+    requestCoordinates = (bounds) => {
+        console.log('requesting coordinates from ', URL);
+        console.log('bounds: ', bounds);
 
-  // initiate map
-  useEffect(() => {
-    if (map.current) return;
-    map.current = new mapboxgl.Map({
-      container: mapContainerRef.current,
-      style: 'mapbox://styles/mapbox/dark-v10',
-      center: [longitude, latitude],
-      zoom: zoom,
-      scrollZoom: false,
-    });
+        try {
+            const requestOptions = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(bounds),
+            };
 
-    setBoundaries(map.current.getBounds());
-  }, [longitude, latitude, zoom, boundaries]);
+            fetch(URL, requestOptions)
+                .then(response => response.json())
+                .then(data => setMarkers(this.map, data, this.markers));
+        } catch (error) {
+            console.log('error fetching data => ', error);
+        }
+    }
 
-  // store new coordinates
-  useEffect(() => {
-    if (!map.current) return; // wait for map to initialise
-    map.current.on('move', () => {
-      setLongitude(
-        map.current
-          .getCenter()
-          .longitude.toFixed(config.COORDINATE_DECIMAL_PLACES)
-      );
-      setLatitude(
-        map.current
-          .getCenter()
-          .latitude.toFixed(config.COORDINATE_DECIMAL_PLACES)
-      );
-      setZoom(map.current.getZoom().toFixed(config.ZOOM_DECIMAL_PLACES));
-      setBoundaries(map.current.getBounds());
-      console.log('BOUNDARIES ARE CHANGING!', boundaries['_se']['lat']);
-    });
-  }, [longitude, latitude, zoom, boundaries]);
 
-  // setting coordinates on map
+    componentDidMount() {
+        const { lng, lat, bounds } = this.state;
+        const map = new mapboxgl.Map({
+            container: this.mapContainer.current,
+            style: 'mapbox://styles/mapbox/dark-v10',
+            center: [lng, lat],
+            zoom: config.DEFAULT_ZOOM,
+            scrollZoom: false
+        });
 
-  // sending api request
-  function requestCoordinates(boundaries) {
-    console.log('URL: ', URL);
-    console.log('BOUNDARIES .JSON: ', JSON.stringify(boundaries));
+        this.map = map;
+        bounds.push(map.getBounds());
 
-    const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(boundaries),
-    };
+        map.addControl(new mapboxgl.NavigationControl());
+        map.on('move', () => {
+            this.setState({
+                lng: map.getCenter().lng.toFixed(config.COORDINATE_DECIMAL_PLACES),
+                lat: map.getCenter().lat.toFixed(config.COORDINATE_DECIMAL_PLACES),
+                zoom: map.getZoom().toFixed(config.ZOOM_DECIMAL_PLACES),
+                bounds: map.getBounds(),
+            });
+        });
+    }
 
-    fetch(URL, requestOptions)
-      .then(response => response.json())
-      .then(data => setCoordinates(map, data, markers));
-  }
 
-  return (
-    <div>
-      <div ref={mapContainerRef} className="map-container" />
-      <div>
-        <button
-          onClick={() => requestCoordinates(boundaries)}
-          className="map-plot-button"
-        >
-          Plot Coordinates!
-        </button>
-      </div>
-    </div>
-  );
+    render() {
+        const { lng, lat, bounds } = this.state;
+        return (
+            <div>
+                <div className='sidebar'>
+                    Lng: {lng} | Lat: {lat}
+                    <button id='plot' onClick={() => this.requestCoordinates(bounds)}>Plot Coordinates</button>
+                </div>
+                <div ref={this.mapContainer} className="map-container" />
+            </div>
+        );
+    }
 }
