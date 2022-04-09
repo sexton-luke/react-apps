@@ -22,7 +22,7 @@ const coordinates = getRandomCoordinates(
 
 // run tests
 describe('getRandomCoordinates', () => {
-  it('assert data types are correct within coordinates: array of named string arrays. Expect [], object, [], string', () => {
+  it('asserts data types are correct within coordinates: array of named string arrays. Expect [], object, [], string', () => {
     expect(typeof coordinates).toBe(typeof []);
     for (let i = 0; i < coordinates.length; i++) {
       const key = NAME + i;
@@ -33,7 +33,7 @@ describe('getRandomCoordinates', () => {
       expect(typeof coordinates[i][key][LONGITUDE_INDEX]).toBe('string');
     }
   });
-  it('assert latitude/longitude coordinate values are within the given boundaries', () => {
+  it('asserts latitude/longitude coordinate values are within the given boundaries', () => {
     for (let i = 0; i < coordinates.length; i++) {
       const key = NAME + i;
 

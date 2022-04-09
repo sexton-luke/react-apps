@@ -1,8 +1,12 @@
-const createLatitudeLongitudeArrays = require('../createLatitudeLongitudeArrays');
+const createLatitudeLongitudeArrays = require("../createLatitudeLongitudeArrays");
+
 // test data
 const jsonData = {
-  coordinate0: ['-73.9876', '40.7661'], // longitude/latitude
-};
+  "coordinate0": {
+    "lng": "-73.9876",
+    "lat": "40.7661"
+  }
+}
 
 // run function
 const arrays = [];
@@ -11,24 +15,21 @@ arrays.push(latitudeArray);
 arrays.push(longitudeArray);
 
 // run tests
-describe('createLatitudeLongitudeArrays', () => {
-  it('assert data types and length of return arrays are equal to amount of coordinates from given param', () => {
+describe("createLatitudeLongitudeArrays", () => {
+  it("asserts data types and length of return arrays are equal to amount of coordinates from given param", () => {
     const jsonDataLength = Object.keys(jsonData).length;
     for (let i = 0; i < arrays.length; i++) {
       expect(typeof arrays[i]).toBe(typeof []);
-      expect(typeof arrays[i][0]).toBe('number');
+      expect(typeof arrays[i][0]).toBe("number");
       expect(arrays[i].length).toEqual(jsonDataLength);
     }
   });
-  it('assert the latitude, longitude values from JSON data are being split correctly into the return arrays respectively', () => {
-    const jsonLatitude = jsonData['coordinate0'][0];
-    const jsonLongitude = jsonData['coordinate0'][1];
-
+  it("asserts the latitude, longitude values from JSON data are being split correctly into the return arrays respectively", () => {
     // convert number to string
     const latitudeString = latitudeArray[0].toString();
     const longitudeString = longitudeArray[0].toString();
 
-    expect(jsonLatitude === latitudeString).toBeTruthy();
-    expect(jsonLongitude === longitudeString).toBeTruthy();
+    expect(jsonData['coordinate0']['lng'] === latitudeString).toBeTruthy();
+    expect(jsonData['coordinate0']['lat'] === longitudeString).toBeTruthy();
   });
 });
