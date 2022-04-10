@@ -34,6 +34,28 @@ This will start the back-end api and listen on default port: `5000`
 - `npm start`
 - Open [http://localhost:3000](http://localhost:3000) to view the app in your browser.
 
-### Congiguring The Front-End Environment
+### Configuring The Front-End Environment
 
 - `plot-box/config.js` allows you to configure the default settings for the Map component.
+
+## Unit Testing
+
+### Back-End Environment
+Jest is used as the testing framework for the api functionality.
+
+Testing functions can be found here: `api/functions/__test__/`
+
+### Front-End Environment
+
+ADD TESTING HERE
+
+
+# Coding Challenge
+
+## [Requirements](planning/requirements.md)
+Please see project requirements for the synopsis breakdown and tasks taken to complete this coding challenge.
+
+## Reflection
+
+Add reflection here
+
