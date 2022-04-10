@@ -2,7 +2,7 @@ import React from 'react';
 import mapboxgl from 'mapbox-gl';
 import config from '../../config';
 import setMarkers from './functions/setMarkers';
-const URL = process.env.REACT_APP_API_URL || config.URL;
+const URL = process.env.REACT_APP_API_URL || config.DEFAULT_URL;
 
 mapboxgl.accessToken = process.env.REACT_APP_MAP_ACCESS_TOKEN;
 
