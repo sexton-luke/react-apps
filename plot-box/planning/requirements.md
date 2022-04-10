@@ -6,6 +6,8 @@
 
 Using **node.js** with an **Express NPM** component as the **backend API framework**, create a **single API endpoint** which will **generate a number** of **randomly located geometry coordinates** within a given **boundary box** and **return coordinates** as an **array of lat/long dictionaries or named arrays**.
 
+
+** **Initial thoughts** **
 - environment: node.js
 - component: express npm
 - endpoints: 1
@@ -34,6 +36,7 @@ Using **node.js** with an **Express NPM** component as the **backend API framewo
 
 Create a simple **React.js** based front end using the **above API endpoint** and **plot the coordinates on a map**. We use **Mapbox** as our **mapping component**, but you can use any of your preferred tools.
 
+** **Initial thoughts** **
 - environment: react.js
 - component: mapbox, setBoundaryBoxButton, plotCoordinatesButton, inputViews
 - functions:
@@ -55,13 +58,13 @@ Create a simple **React.js** based front end using the **above API endpoint** an
 5.  ~~Handle response and plot coordinates on Map component~~
 6.  ~~Fix Map on move~~
 7.  ~~Create function files~~
-8.  Unit testing
-9.  CSS styling:
+8.  ~~Unit testing~~
+9.  ~~CSS styling:~~
     - ~~Logo~~
     - ~~Custom Markers~~
       - ~~Marker Popups~~
     - ~~Colour theme~~
-    - All Components
+    - ~~All Components~~
 
 ## Submission
 

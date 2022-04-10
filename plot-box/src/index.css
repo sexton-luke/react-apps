@@ -30,6 +30,7 @@
 }
 
 .map-container {
+  display: flex;
   height: 400px;
 }
 
@@ -71,6 +72,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: auto;
+  background-color: #D61E29;
 }
 
 code {
@@ -80,7 +83,6 @@ code {
 
 footer {
   background-color: #191A1A;
-  min-height: 25;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -88,11 +90,12 @@ footer {
   font-size: calc(5 + 2vmin);
   color: #E00A24;
   border-top: 2px solid #444444;
+  min-height: 100px;
 }
 
 header {
   background-color: #191A1A;
-  min-height: 25;
+  min-height: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;

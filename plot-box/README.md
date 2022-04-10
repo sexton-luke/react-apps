@@ -85,7 +85,3 @@ This made me question and restructure certain components and functions. I feel t
 Thank you very much for this coding challenge. I have definitely learned a lot and am glad to have had the opportunity to showcase my abilities.
 
 Luke Sexton
-
-
-
-

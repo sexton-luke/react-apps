@@ -43,7 +43,7 @@ app.post(
       latitudeBoundaries
     );
     console.log('number of coordinates: ', randomNumber);
-    console.log('coordinates: ', coordinates);
+    console.log('sending coordinates in response..: ', coordinates);
     res.send(coordinates);
   }
 );
