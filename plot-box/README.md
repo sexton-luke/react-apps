@@ -13,7 +13,7 @@ Plot Box requires the following to be installed:
 
 ## Starting The Back-End Environment
 
-- Open terminal
+- Open terminal `plot-box/`
 - Change directory to `api/`
 - Enter the following code:
 - `node index.js`
@@ -29,7 +29,7 @@ This will start the back-end api and listen on default port: `5000`
 
 ## Starting The Front-End Environment
 
-- Open second terminal
+- Open second terminal `plot-box/`
 - Enter the following code:
 - `npm start`
 - Open [http://localhost:3000](http://localhost:3000) to view the app in your browser.

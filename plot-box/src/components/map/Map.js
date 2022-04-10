@@ -2,11 +2,9 @@ import React from 'react';
 import mapboxgl from 'mapbox-gl';
 import config from '../../config';
 import setMarkers from './functions/setMarkers';
-const URL = process.env.REACT_APP_API_URL;
+const URL = process.env.REACT_APP_API_URL || config.URL;
 
-mapboxgl.accessToken =
-    'pk.eyJ1IjoibHVrZS1zZXh0b24iLCJhIjoiY2wxbm4zMHRmMGhsNDNrcGN3cmdpN3djeCJ9.Xo8UgocO3400h_0XbUel2A';
-
+mapboxgl.accessToken = process.env.REACT_APP_MAP_ACCESS_TOKEN;
 
 export default class Map extends React.PureComponent {
     constructor(props) {

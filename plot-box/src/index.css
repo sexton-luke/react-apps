@@ -87,7 +87,7 @@ footer {
   justify-content: center;
   font-size: calc(5 + 2vmin);
   color: #E00A24;
-  border-top: 1px solid #444444;
+  border-top: 2px solid #444444;
 }
 
 header {
@@ -99,6 +99,7 @@ header {
   justify-content: center;
   font-size: calc(5 + 2vmin);
   color: #E00A24;
+  border-bottom: 2px solid #444444;
 }
 
 h2 {
