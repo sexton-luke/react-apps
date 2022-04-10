@@ -7,7 +7,7 @@ React application to plot random coordinates on a map
 Plot Box requires the following to be installed:
 - [React](https://reactjs.org/) - Front-End Environment
 - [Node.JS](https://nodejs.org/en/) - Back-End Environemnt
-- Download this repository and change directory to `plot-box/`
+- Download [this repository](https://github.com/sexton-luke/react-apps) and change directory to `plot-box/`
 - Run the following code to install dependencies:
 - `npm install`
 
@@ -80,6 +80,11 @@ I found the coding an overall good and enjoyable experience. I felt confident wi
 #### Unit testing
 I felt comfortable with basic unit testing, however, I found it difficult to comprehend and identify if I needed to apply some of these unit testing methods. For example, **how** and if I would need to implement jest mock functions, and deeper levels of testing with enzyme.
 This made me question and restructure certain components and functions. I feel this is something I need to work on and will achieve better results with further experience.
+
+#### CSS Styling
+Would like to have finished styling the site. 
+- Redoing icons/logo's for better resolution.
+- Extra research for CSS rules and layouts.
 
 ## Thank You!
 Thank you very much for this coding challenge. I have definitely learned a lot and am glad to have had the opportunity to showcase my abilities.
