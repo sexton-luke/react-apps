@@ -10,6 +10,12 @@ Plot Box requires the following to be installed:
 - Run the following code to install dependencies:
 - `npm install`
 
+## Enabling Mapbox Access
+- [Mapbox Account](https://account.mapbox.com/) - Create free account to generate default access token.
+- Create `.env` file in `plot-box/`
+- Add the following the file:
+  - `REACT_APP_MAP_ACCESS_TOKEN=` then your access token in quotation marks `'pk.'`
+
 
 ## Starting The Back-End Environment
 
@@ -21,9 +27,9 @@ Plot Box requires the following to be installed:
 This will start the back-end api and listen on default port: `5000`
 
 ### Configuring The Back-End Environment
-- Creating you own `.env` file and declaring your desired port value
+- Declare your desired port number to your `.env` file by adding the 'API_PORT=` variable. 
 - `api/config.js` allows you to configure the following:
-  - `PORT: 5000` - change `5000` to your desired port value. This will be the default value if `.env` does not exist.
+  - `PORT: 5000` - This will be the default value if `.env` does not exist.
   - `CEILING: 10` - The maximum amount of random coordinates to be generated.  
 
 
@@ -37,6 +43,7 @@ This will start the back-end api and listen on default port: `5000`
 ### Configuring The Front-End Environment
 
 - `plot-box/config.js` allows you to configure the default settings for the Map component.
+  - `DEFAULT_URL="http://localhost:5000/api/coordinates` - This will be the default URL if `.env` does not exist.
 
 ## Unit Testing
 
